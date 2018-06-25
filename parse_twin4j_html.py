@@ -20,4 +20,8 @@ for path in paths:
         else:
             link_element = featured_element.find_all_next("a")[:2]
 
-        print(path, [(link.text, link["href"]) for link in link_element])
+        print(path)
+        print("Featured Community Member: ",    [(link.text, link["href"]) for link in link_element])
+
+        for link in [link for link in soup.find_all("a") if "twitter" not in link["href"] and "twitter" not in link.text]:
+            print(link["href"], link.text)
