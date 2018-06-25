@@ -15,5 +15,9 @@ for path in paths:
         person = match.groups(1)[0].strip()
         people = [p.strip() for p in person.split(" and ")]
 
-        link = featured_element.findNext("a")["href"]
-        print(path, people, link)
+        if len(people) == 1:
+            link_element = featured_element.find_all_next("a")[:1]
+        else:
+            link_element = featured_element.find_all_next("a")[:2]
+
+        print(path, [(link.text, link["href"]) for link in link_element])
