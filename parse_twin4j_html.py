@@ -4,8 +4,10 @@ import re
 from bs4 import BeautifulSoup
 from neo4j.v1 import GraphDatabase
 
-driver = GraphDatabase.driver(os.environ["NEO4J_BOLT_URI"],
-                              auth=(os.environ["NEO4J_USER"], os.environ["NEO4J_PASSWORD"]))
+bolt_uri = os.environ["NEO4J_BOLT_URI"]
+user = os.environ["NEO4J_USER"]
+password = os.environ["NEO4J_PASSWORD"]
+driver = GraphDatabase.driver(bolt_uri, auth=(user, password))
 
 paths = glob.glob("/Users/markneedham/projects/twin4j/adoc/*.html")
 
