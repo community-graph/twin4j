@@ -43,4 +43,4 @@ for path in paths:
 
         for line in valid_lines:
             matches = re.match("(https?://.*)\[(.*)\^?\]", line)
-            print(line, matches)
+            print(line,     matches)
